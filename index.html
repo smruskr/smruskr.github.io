@@ -9,7 +9,54 @@
 <body>
   <section>
     <h1>hello github.io</h1>
+    <input type="text" name="" value="" id="search_area">
+    <button type="button" name="button" id="search_button">検索</button>
+    <ul id="search_result">
+
+    </ul>
   </section>
+
+  <script type="text/javascript">
+
+    $(function(){
+      $('#search_button').on('click',function(){
+        var keyword = $('#search_area').val();
+
+        $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
+          applicationId: "1066231865392809400",
+          keyword: keyword
+          // getでパラメータとしてapplicationIdをキーワードを投げている
+        },
+        // get上記を投げると、
+        // dataという名前のオブジェクトにいろいろ入って返ってくる
+        // 最初に検索結果の数、ページ、などのあとにItemsという配列があり、
+        // その中に各Itemの情報がさらに入っている
+
+      function(data){
+        // dataを使用したfunction
+        if (data.count > 0){
+          // 0じゃなければ出力していく
+          $.each(data.Items, function(i, item){
+            // $.ってなんだ？
+            // dataのなかのItemsという配列のなかでfunctionをまわす
+            // i、itemを使っている？iは一時的？（使われていない）
+            // jqueryのfunctionの第二引数はコンテキスト（検索対象を絞る）
+            // itemのなかでiのものを対象にしてまわす？
+            var itemListElement = $(`
+              <li>
+                <a href="${item.Item.itemUrl}">
+                  <img src="${item.Item.mediumImageUrls[0].imageUrl}">
+                </a>
+              </li>
+            `);
+            // jsonで返ってきている？
+            $('#search_result').append(itemListElement);
+          })
+        }
+      })
+      })
+    })
+  </script>
 
 </body>
 </html>
