@@ -4,64 +4,265 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>hello github.io</title>
-</head>
-<body>
-  <section>
-    <h1>hello github.io</h1>
-    <input type="text" name="" value="" id="search_area">
-    <button type="button" name="button" id="search_button">検索</button>
-    <ul id="search_result">
 
-    </ul>
-  </section>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
   <script
+    type="text/javascript"
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
   </script>
+  <script type="text/javascript" src="js/jquery.adaptive-backgrounds.js"></script>
 
-  <script type="text/javascript">
+  <title>hello github.io</title>
+</head>
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+  body {
+    color: #333;
+  }
+  section {
+    padding: 40px;
+  }
+  #header h1 {
+    font-size: 40px;
+  }
+  #header p {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .search_box {
+    margin-top: 40px;
+  }
+  #search_area,
+  #search_button {
+    font-size: 16px;
+  }
+  #search_area {
+    border: 1px solid #bbb;
+    border-radius: 2px;
+    width: 200px;
+    padding: 6px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05) inset;
+  }
+  #search_area:focus {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2) inset;
+  }
+  #search_button {
+    margin-left: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 18px;
+    background-color: #00b198;
+    transition: .3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  #search_button:hover {
+    cursor: pointer;
+    background-color: #00caae;
+    /* transform: translateY(-2px); */
+    /* transform: scale(1.02); */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  #search_button i,
+  #search_button span {
+    color: #fff;
+  }
+  #search_button i {
+    font-size: 14px;
+  }
+  #search_button span {
+    margin-left: 2px;
+    font-size: 16px;
+  }
+
+  .item-element {
+    position: relative;
+    max-width: 800px;
+    min-width: 500px;
+    margin-bottom: 30px;
+    height: 240px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: .3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .item-element:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    opacity: .9;
+  }
+  .item-element a {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 30px;
+    width: 100%;
+  }
+  .item-image {
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    background-color: #ddd;
+    background-size: cover;
+  }
+  .item-caption {
+    display: inline-block;
+    flex: 1;
+    margin-left: 20px;
+    width: 100%;
+    max-width: 540px;
+    min-width: 240px;
+  }
+  .item-title {
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item-detail {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+  }
+
+</style>
+
+<body>
+  <section id="header">
+    <h1>hello github.io</h1>
+    <p>search for item of rakuten API</p>
+    <div class="search_box">
+      <input type="text" placeholder="input keyword here" id="search_area">
+      <button type="button" name="button" id="search_button">
+        <i class="fas fa-search"></i>
+        <span>search</span>
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <ul id="search_result">
+
+    </ul>
+
+    <ul class="list">
+
+      <li class="item-element">
+        <a href="#"  data-adaptive-background="1">
+          <p class="item-image"
+            style="background: url(https://images-na.ssl-images-amazon.com/images/I/61-JNf1t%2BLL._SX355_.jpg) no-repeat center; background-size: cover;"
+            data-ab-css-background="1"
+            data-adaptive-background="1">
+          </p>
+          <div class="item-caption">
+            <p class="item-title">
+              Titleeeeeeeeeeeeeeeeeeeee
+            </p>
+            <p class="item-detail">
+              captions are inserted here.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+
+  <script>
 
     var jq = document.createElement('script');
     jq.src = "https://code.jquery.com/jquery-2.1.3.min.js";
     document.getElementsByTagName('head')[0].appendChild(jq);
 
-    $(function(){
-      $('#search_button').on('click',function(){
-        var keyword = $('#search_area').val();
+//     $(function(){
+//       $('#search_button').on('click',function(){
+//         var keyword = $('#search_area').val();
+//
+//         // get上記を投げると、
+//         // dataという名前のオブジェクトにいろいろ入って返ってくる
+//         // 最初に検索結果の数、ページ、などのあとにItemsという配列があり、
+//         // その中に各Itemの情報がさらに入っている
+//
+//         function(data){
+//           // dataを使用したfunction
+//           if (data.count > 0){
+//             // 0じゃなければ出力していく
+//             $.each(data.Items, function(i, item){
+//               // $.ってなんだ？
+//               // dataのなかのItemsという配列のなかでfunctionをまわす
+//               // i、itemを使っている？iは一時的？（使われていない）
+//               // jqueryのfunctionの第二引数はコンテキスト（検索対象を絞る）
+//               // itemのなかでiのものを対象にしてまわす？
+//               var itemListElement = $(`
+//                 <li>
+//                   <a href="${item.Item.itemUrl}">
+//                     <img src="${item.Item.mediumImageUrls[0].imageUrl}">
+//                   </a>
+//                 </li>
+//               `);
+//               // jsonで返ってきている？
+//               $('#search_result').append(itemListElement);
+//             })
+//           }  //if(data.count > 0)
+//         })  //function(data)
+//       })  //onclick
+//     })  //$(function())
+//
+//     $(function(){
+//       $('#search_button').on('click',function(){
+//         var keyword = $('#search_area').val();
+//
+//         // get上記を投げると、
+//         // dataという名前のオブジェクトにいろいろ入って返ってくる
+//         // 最初に検索結果の数、ページ、などのあとにItemsという配列があり、
+//         // その中に各Itemの情報がさらに入っている
+//
+//         function(data){
+//           // dataを使用したfunction
+//           if (data.count > 0){
+//             // 0じゃなければ出力していく
+//             $.each(data.Items, function(i, item){
+//               // $.ってなんだ？
+//               // dataのなかのItemsという配列のなかでfunctionをまわす
+//               // i、itemを使っている？iは一時的？（使われていない）
+//               // jqueryのfunctionの第二引数はコンテキスト（検索対象を絞る）
+//               // itemのなかでiのものを対象にしてまわす？
+//               var itemListElement = $(`
+//                 <li>
+//                   <a href="${item.Item.itemUrl}">
+//                     <img src="${item.Item.mediumImageUrls[0].imageUrl}">
+//                   </a>
+//                 </li>
+//               `);
+//               // jsonで返ってきている？
+//               $('#search_result').append(itemListElement);
+//             })
+//           }  //if(data.count > 0)
+//         })  //function(data)
+//       })  //onclick
+//     })  //$(function())
+//
+//
+//
+//
 
-
-        // get上記を投げると、
-        // dataという名前のオブジェクトにいろいろ入って返ってくる
-        // 最初に検索結果の数、ページ、などのあとにItemsという配列があり、
-        // その中に各Itemの情報がさらに入っている
-
-        function(data){
-          // dataを使用したfunction
-          if (data.count > 0){
-            // 0じゃなければ出力していく
-            $.each(data.Items, function(i, item){
-              // $.ってなんだ？
-              // dataのなかのItemsという配列のなかでfunctionをまわす
-              // i、itemを使っている？iは一時的？（使われていない）
-              // jqueryのfunctionの第二引数はコンテキスト（検索対象を絞る）
-              // itemのなかでiのものを対象にしてまわす？
-              var itemListElement = $(`
-                <li>
-                  <a href="${item.Item.itemUrl}">
-                    <img src="${item.Item.mediumImageUrls[0].imageUrl}">
-                  </a>
-                </li>
-              `);
-              // jsonで返ってきている？
-              $('#search_result').append(itemListElement);
-            })
-          }  //if(data.count > 0)
-        })  //function(data)
-      })  //onclick
-    })  //$(function())
   </script>
 
 </body>
